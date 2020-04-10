@@ -1,16 +1,22 @@
 package com.mission1;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
-@EnableAutoConfiguration
+@RequestMapping("/api/hello-world")
+//mark class as Spring MVC Controller
+@RestController
 public class HelloWorldController {
-    @RequestMapping("/hello")
+    // HTTP GET Mapping
+    @GetMapping
     @ResponseBody
-    public String sayHello() {
-        return "Hello World! What am I doing here :3";
+    public String getHello() {
+        return "Hello World! What am I doing here :3 - This one is for GET endpoint";
+    }
+    // HTTP POST Mapping
+    @PostMapping
+    @ResponseBody
+    public String postHelllo() {
+        return "Hello World! What am I doing here :3 - This one is for POST endpoint";
     }
 }
